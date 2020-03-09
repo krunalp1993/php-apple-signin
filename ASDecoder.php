@@ -23,7 +23,7 @@ class ASDecoder {
      * @param string $identityToken
      * @return object|null
      */
-    public static function getAppleSignInPayload(string $identityToken)
+    public static function getAppleSignInPayload($identityToken)
     {
         $identityPayload = self::decodeIdentityToken($identityToken);
         return new ASPayload($identityPayload);
@@ -35,7 +35,7 @@ class ASDecoder {
      * @param string $identityToken
      * @return object
      */
-    public static function decodeIdentityToken(string $identityToken) {
+    public static function decodeIdentityToken($identityToken) {
         $publicKeyData = self::fetchPublicKey();
 
         $publicKey = $publicKeyData['publicKey'];
@@ -109,7 +109,7 @@ class ASPayload {
         return (isset($this->_instance->sub)) ? $this->_instance->sub : null;
     }
 
-    public function verifyUser(string $user) {
+    public function verifyUser($user) {
         return $user === $this->getUser();
     }
 }

@@ -25,6 +25,7 @@ class ASDecoder {
      */
     public static function getAppleSignInPayload($identityToken)
     {
+        echo 1; exit;
         $identityPayload = self::decodeIdentityToken($identityToken);
         return new ASPayload($identityPayload);
     }
